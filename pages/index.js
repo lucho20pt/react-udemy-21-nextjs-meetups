@@ -35,7 +35,7 @@ const HomePage = ({ meetups }) => {
 
 // ngspr
 export const getStaticProps = async (ctx) => {
-  // fetch data from an API
+  // DUMMY_MEETUPS fetch data from an API
   return {
     props: {
       meetups: DUMMY_MEETUPS
