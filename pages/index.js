@@ -34,14 +34,24 @@ const HomePage = ({ meetups }) => {
 }
 
 // ngspr
-export const getStaticProps = async (ctx) => {
-  // fetch data from an API
+// export const getStaticProps = async (ctx) => {
+//   // fetch data from an API
+//   return {
+//     props: {
+//       meetups: DUMMY_MEETUPS
+//     },
+//     revalidate: 10 // incremental static generation 10sec // generated during build and every defined sec on the server
+//   }
+// }
+
+export const getServerSideProps = async (ctx) => {
+  const req = ctx.req
+  const res = ctx.res
 
   return {
-    props: {
+    props:{
       meetups: DUMMY_MEETUPS
-    },
-    revalidate: 10 // incremental static generation 10sec // generated during build and every defined sec on the server
+    }
   }
 }
 
