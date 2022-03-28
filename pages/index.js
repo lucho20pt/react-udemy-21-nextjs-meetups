@@ -1,5 +1,4 @@
 // our-domain.com/
-import { useEffect, useState } from 'react'
 import MeetupList from '@/components/meetups/MeetupList'
 
 const DUMMY_MEETUPS = [
@@ -23,22 +22,26 @@ const DUMMY_MEETUPS = [
   }
 ]
 
-const HomePage = () => {
+const HomePage = ({ meetups }) => {
   //
-  const [loadingMeetups, setLoadingMeetups] = useState([])
-
-  useEffect(() => {
-    // send a http req and fetch data
-    setLoadingMeetups(DUMMY_MEETUPS)
-    // return () => console.log('cleanup')
-  }, [])
 
   return (
     <>
       <h1>Home Page</h1>
-      <MeetupList meetups={loadingMeetups} />
+      <MeetupList meetups={meetups} />
     </>
   )
+}
+
+// ngspr
+export const getStaticProps = async (ctx) => {
+  // fetch data from an API
+
+  return {
+    props: {
+      meetups: DUMMY_MEETUPS
+    }
+  }
 }
 
 export default HomePage
