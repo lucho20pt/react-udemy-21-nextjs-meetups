@@ -40,7 +40,8 @@ export const getStaticProps = async (ctx) => {
   return {
     props: {
       meetups: DUMMY_MEETUPS
-    }
+    },
+    revalidate: 10 // incremental static generation 10sec // generated during build and every defined sec on the server
   }
 }
 
